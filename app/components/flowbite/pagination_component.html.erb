@@ -1,0 +1,45 @@
+<%
+  link_style = "flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+  page_style = "z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+  prev_style = "flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+  prev_disabled_style = "flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+  next_style = "flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+  next_disabled_style = "flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+%>
+<nav aria-label="Pagination">
+  <ul class="flex items-center -space-x-px h-10 text-base">
+    <li>
+      <% if @pagy.prev %>
+        <%= link_to pagy_url_for(@pagy, @pagy.prev), class: prev_style do %>
+          <%= render Flowbite::Pagination::PrevComponent.new %>
+        <% end %>
+      <% else %>
+         <span class="<%= prev_disabled_style %>">
+           <%= render Flowbite::Pagination::PrevComponent.new %>
+         </span>
+      <% end %>
+    </li>
+
+    <% @pagy.series.each do |item| %>
+      <li>
+        <% if item.is_a?(Integer) || item.is_a?(String) %>
+          <%= link_to item, pagy_url_for(@pagy, item), class: (item.to_i == @pagy.page ? page_style : link_style) %>
+        <% elsif item == :gap %>
+          <span class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">...</span>
+        <% end %>
+      </li>
+    <% end %>
+
+      <li>
+        <% if @pagy.next %>
+          <%= link_to pagy_url_for(@pagy, @pagy.next), class: next_style do %>
+            <%= render Flowbite::Pagination::NextComponent.new %>
+          <% end %>
+        <% else %>
+         <span class="<%= next_disabled_style %>">
+           <%= render Flowbite::Pagination::NextComponent.new %>
+         </span>
+        <% end %>
+      </li>
+  </ul>
+</nav>

@@ -1,8 +1,10 @@
 class TopicsController < ApplicationController
   def index
+    @pagy, @topics = pagy(Topic.all)
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def update
