@@ -146,6 +146,7 @@
     <orderEntry type="library" scope="PROVIDED" name="uri (v1.0.3, RVM: ruby-3.4.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="useragent (v0.16.11, RVM: ruby-3.4.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="view_component (v3.21.0, RVM: ruby-3.4.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="view_component-form (v0.2.11, RVM: ruby-3.4.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, RVM: ruby-3.4.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.11, RVM: ruby-3.4.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.7, RVM: ruby-3.4.2) [gem]" level="application" />
@@ -207,6 +208,7 @@
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
         <option value="test_unit:plugin" />
+        <option value="vcf:builder" />
       </list>
     </option>
     <option name="myGenerators">
@@ -258,6 +260,7 @@
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
         <option value="test_unit:plugin" />
+        <option value="vcf:builder" />
       </list>
     </option>
   </component>

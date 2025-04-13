@@ -7,6 +7,10 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
   def update
   end
 
