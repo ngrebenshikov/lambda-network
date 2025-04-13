@@ -24,4 +24,8 @@ class FlowbiteFormBuilder < ViewComponent::Form::Builder
   # requires inheriting from ViewComponent::Form::Builder
   # or including ViewComponent::Form::Renderer
   namespace "Flowbite::Form"
+
+  def group(options = {}, &block)
+    render_component(:group, @object_name, objectify_options(options), &block)
+  end
 end
